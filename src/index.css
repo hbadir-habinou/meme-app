@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --panel: #1a1a26;
+    --border: #2a2a3d;
+    --primary: #7c3aed;
+    --accent: #f059da;
+    --neon: #a855f7;
+    --green: #22d3a0;
+    --red: #f43f5e;
+    --yellow: #fbbf24;
+    --text: #e2e8f0;
+    --muted: #6b7280;
+    --white: #ffffff;
+    --font: 'Syne', sans-serif;
+    --mono: 'DM Mono', monospace;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow: 0 8px 32px rgba(124, 58, 237, 0.15);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 99px;
+}
+
+
+/* Animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(124, 58, 237, 0);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes glow {
+    0%,
+    100% {
+        text-shadow: 0 0 10px var(--accent);
+    }
+    50% {
+        text-shadow: 0 0 20px var(--accent), 0 0 40px var(--primary);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+button {
+    transition: all 0.18s cubic-bezier(.4, 0, .2, 1);
+    font-family: var(--font);
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+input,
+select,
+textarea {
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+}
+
+
+/* Toast */
+
+.toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 14px;
+    z-index: 9999;
+    animation: slideUp 0.25s ease;
+    white-space: nowrap;
+    /* backdrop-filter: blur(16px); */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toast-success {
+    background: rgba(34, 211, 160, 0.2);
+    color: var(--green);
+    border-color: var(--green);
+}
+
+.toast-error {
+    background: rgba(244, 63, 94, 0.2);
+    color: var(--red);
+    border-color: var(--red);
+}
+
+.toast-info {
+    background: rgba(124, 58, 237, 0.2);
+    color: var(--neon);
+    border-color: var(--neon);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --panel: #1a1a26;
+    --border: #2a2a3d;
+    --primary: #7c3aed;
+    --accent: #f059da;
+    --neon: #a855f7;
+    --green: #22d3a0;
+    --red: #f43f5e;
+    --yellow: #fbbf24;
+    --text: #e2e8f0;
+    --muted: #6b7280;
+    --white: #ffffff;
+    --font: 'Syne', sans-serif;
+    --mono: 'DM Mono', monospace;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow: 0 8px 32px rgba(124, 58, 237, 0.15);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 99px;
+}
+
+
+/* Animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(124, 58, 237, 0);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes glow {
+    0%,
+    100% {
+        text-shadow: 0 0 10px var(--accent);
+    }
+    50% {
+        text-shadow: 0 0 20px var(--accent), 0 0 40px var(--primary);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+}
+
+button {
+    transition: all 0.18s cubic-bezier(.4, 0, .2, 1);
+    font-family: var(--font);
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+input,
+select,
+textarea {
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+}
+
+
+/* Toast */
+
+.toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 14px;
+    z-index: 9999;
+    animation: slideUp 0.25s ease;
+    white-space: nowrap;
+    /* backdrop-filter: blur(16px); */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toast-success {
+    background: rgba(34, 211, 160, 0.2);
+    color: var(--green);
+    border-color: var(--green);
+}
+
+.toast-error {
+    background: rgba(244, 63, 94, 0.2);
+    color: var(--red);
+    border-color: var(--red);
+}
+
+.toast-info {
+    background: rgba(124, 58, 237, 0.2);
+    color: var(--neon);
+    border-color: var(--neon);
+}

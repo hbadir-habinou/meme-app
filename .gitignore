@@ -1,0 +1,20 @@
+# Dépendances
+node_modules/
+
+# Variables d'environnement — NE JAMAIS commiter ces fichiers !
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build
+build/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
