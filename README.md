@@ -268,12 +268,6 @@ Les contributions sont les bienvenues !
 
 ---
 
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
----
-
 <div align="center">
-  Fait avec ❤️ dans le cadre du projet SUPINFO B.Eng.3 / M.Eng.1
+  Fait dans le cadre du projet SUPINFO B.Eng.3 / M.Eng.1 par Habiba Dairou
 </div>
